@@ -8,40 +8,40 @@
     <!-- Google tag (gtag.js) -->
     <meta charset="UTF-8">
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:title" content="">
+    <meta property="og:url" content="https://canyoudrawmeahorse.com"/>
+    <meta property="og:site_name" content="canyoudrawmeahorse"/>
+    <meta property="og:title" content="canyoudrawmeahorse">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="">
-    <link rel="canonical" href="">
-    <meta property="og:image" content=""/>
-    <meta property="twitter:image" content=""/>
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="the official website of canyoudrawmeahorse">
+    <link rel="canonical" href="https://canyoudrawmeahorse.com">
+    <meta property="og:image" content="https://canyoudrawmeahorse/assets/credits.png"/>
+    <meta property="twitter:image" content="https://canyoudrawmeahorse/assets/credits.png"/>
+    <meta name="twitter:description" content="the official website of canyoudrawmeahorse">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "",
-      "url": "",
-      "description": "",
-      "image": "",
+      "name": "canyoudrawmeahorse",
+      "url": "https://canyoudrawmeahorse.com",
+      "description": "the official website of canyoudrawmeahorse",
+      "image": "https://canyoudrawmeahorse/assets/credits.png",
       "author": {
         "@type": "Person",
         "name": "Max_is_Dreaming"
       }
     }
     </script>
-    <meta name="description" content="">
-    <meta property="og:description" content="">
+    <meta name="description" content="the official website of canyoudrawmeahorse">
+    <meta property="og:description" content="the official website of canyoudrawmeahorse">
     <title>the title is the title is the title is the title is the title</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="">
-    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
     <link rel="shortcut icon" href="./assets/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="" />
-    <link rel="manifest" href="" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
     <link rel="stylesheet" href="./horsesmane.css">
 
     <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
@@ -149,7 +149,7 @@
         <div class="horseInfo">
         <h1>Name Of Horser</h1>
         <h3>info of Horser</h3>
-        <!-- <h5><i>tags of horsie</i></h5>  -->
+        <h5><i>tags of horsie</i></h5>
         </div>
       </div>
       <div class="horseRecs">
@@ -602,7 +602,7 @@
       LocateHorseInfo = horseData.get(goodLookingHorse);
       theHorsieScoop.querySelector("h1").textContent = `${bigData[LocateHorseInfo][3]}, ${bigData[LocateHorseInfo][4]}`;
       theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]} from ${bigData[LocateHorseInfo][6]}, ${bigData[LocateHorseInfo][7]}`;
-      //theHorsieScoop.querySelector("h5 i").textContent = `${bigData[LocateHorseInfo][10]}`;
+      theHorsieScoop.querySelector("h5 i").textContent = `${bigData[LocateHorseInfo][11]}`;
 
       let allThemHorses = "";
       let skippedhorses = 0;
@@ -1123,7 +1123,7 @@
         //Tag weights cuz Bugs had the idea to do this and it's gonna be so good, this is an actual algorythm now lmao
         for (let parsingTagz = 1; parsingTagz < bigData.length; parsingTagz++) {
 
-          soWhatTagsYouGot = bigData[bigData.length - parsingTagz][10].split(",").map(x => x.trim());
+          soWhatTagsYouGot = bigData[bigData.length - parsingTagz][11].split(",").map(x => x.trim());
 
           for (let tags = 0; tags < soWhatTagsYouGot.length; tags++) {
 
@@ -1152,11 +1152,11 @@
       for (let parsing = 1; parsing < bigData.length; parsing++){
         let horseAlikeIndex = 1;
 
-        if (bigData[parsing][8] == bigData[bigData.length-horse2investigate][8]){horseAlikeIndex++;}
         if (bigData[parsing][9] == bigData[bigData.length-horse2investigate][9]){horseAlikeIndex++;}
+        if (bigData[parsing][10] == bigData[bigData.length-horse2investigate][10]){horseAlikeIndex++;}
 
-        const myHorseTag = bigData[bigData.length-horse2investigate][10].split(",").map(x => x.trim());
-        const thisHorseTag = bigData[parsing][10].split(",").map(x => x.trim());
+        const myHorseTag = bigData[bigData.length-horse2investigate][11].split(",").map(x => x.trim());
+        const thisHorseTag = bigData[parsing][11].split(",").map(x => x.trim());
         const howSimilarAreTheseTwoHorsesTags =  myHorseTag.filter(value => thisHorseTag.includes(value));
 
         for (let soYourTagsAre = 0; soYourTagsAre < howSimilarAreTheseTwoHorsesTags.length; soYourTagsAre++){
@@ -1180,6 +1180,7 @@
           }
           return Math.random() - 0.5;
       });
+      console.log(horseAlike);
     }
 
   </script>
