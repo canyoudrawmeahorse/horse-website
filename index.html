@@ -35,7 +35,8 @@
     <meta property="og:description" content="">
     <title>the title is the title is the title is the title is the title</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+
     <link rel="icon" type="image/png" sizes="32x32" href="">
     <link rel="icon" type="image/png" sizes="16x16" href="">
     <link rel="shortcut icon" href="./assets/favicon.ico" />
@@ -67,7 +68,7 @@
     </div>
 
     <h1 id="Announcer">SuperKill</h1>
-    <input id="horsequery" maxlength="500" type="number">
+    <input id="horsequery" maxlength="3" type="text">
 
     <div id="inputhelper">What's your first name?</div>
     <input id="horserName" maxlength="20" type="text">
@@ -789,14 +790,13 @@
 
     //NightHorseMode
     document.getElementById('nightHorse').addEventListener('click', () => {
-          const isNight = document.documentElement.classList.toggle('night');
+      const isNight = document.documentElement.classList.toggle('night');
       if (document.documentElement.classList.contains("night")){
         document.getElementById('nightHorse').src = "./assets/dayMode.png"
       }
       else {
         document.getElementById('nightHorse').src = "./assets/nightMode.png"
       }
-      
     })
 
     //HORSEREBIRTH

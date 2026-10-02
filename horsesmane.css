@@ -17,6 +17,7 @@ body{
   overflow: hidden;
   background-size: 10.7dvh 10.7dvh;
   background-position-x: 100dvw;
+  background-color: rgb(255, 255, 255);
   background-image:
     linear-gradient(to right, rgb(236, 236, 236) 0.14rem, transparent 0.14rem),
     linear-gradient(to bottom, rgb(236, 236, 236) 0.14rem, transparent 0.14rem);
