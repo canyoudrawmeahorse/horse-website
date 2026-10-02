@@ -142,8 +142,8 @@
     </div>
 
     <div class="horseterest">
+      <img class="exitHorseFeature pointer" id="exitHorseterest" src="./assets/ex.png" alt="leave horseterest">
       <div class="horseShowcase">
-        <img class="exitHorseFeature pointer" id="exitHorseterest" src="./assets/ex.png" alt="leave horseterest">
         <div class="horsePortrait"> <img src="./horses/37.png" alt="the best horse"> </div>
         <div class="horseInfo">
         <h1>Name Of Horser</h1>
@@ -202,6 +202,9 @@
     const TheHorseIsTyping = document.querySelector(".writingguide");
     const horseTools = document.querySelector(".tools");
     const noHorsesForYou = document.getElementById("noHorsesForYou");
+    function isPhone() {
+      return window.matchMedia("(pointer: coarse)").matches;
+    }
     let titletext = "can you draw me a horse?";
     let gibberish = "2>-Ç»1_BL3ASi2=?12na%£@a"
     let i = 0;
@@ -243,13 +246,16 @@
     function startHorsing() {
       document.removeEventListener("click", startHorsing)
       horseTitleDiv.style.transition = "all 2s ease-in-out";
-      horseTitleDiv.style.transform = "translate(1.8dvh,-2.1dvh)";
-      horseTitleDiv.style.right = "0";
-      setTimeout(() => {
-        horseTitleDiv.style.transition = "opacity 0.8s linear";
-      }, 2000);
-      setTimeout(() => {birthHorse()}, 1500);
-      setTimeout(() => {horseTools.style.opacity = 1;horseTools.style.pointerEvents = "all";}, 5000);
+      if (isPhone()) {horseTitleDiv.style.opacity = "0"; setTimeout(() => {horseTitleDiv.style.display = "none";}, 10000);}
+      else{
+        horseTitleDiv.style.transform = "translate(1.8dvh,-2.1dvh)";
+        horseTitleDiv.style.right = "0";
+        setTimeout(() => {
+          horseTitleDiv.style.transition = "opacity 0.8s linear";
+        }, 2000);
+      }
+        setTimeout(() => {birthHorse()}, 1500);
+        setTimeout(() => {horseTools.style.opacity = 1;horseTools.style.pointerEvents = "all";}, 5000);
     }
 
     const whatHorsesWeGot = [
@@ -783,7 +789,7 @@
 
     //NightHorseMode
     document.getElementById('nightHorse').addEventListener('click', () => {
-      document.documentElement.classList.toggle("night");
+          const isNight = document.documentElement.classList.toggle('night');
       if (document.documentElement.classList.contains("night")){
         document.getElementById('nightHorse').src = "./assets/dayMode.png"
       }

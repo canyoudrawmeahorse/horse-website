@@ -625,4 +625,216 @@ textarea:focus, input:focus{
     line-height: 10.8dvh;
     text-wrap: auto;
   }
+  #CursorIsMe{
+    display: none !important;
+  }
+  .saddle{
+    width: 7dvh;
+    height: 7dvh;
+  }
+  .tools{
+    position: fixed;
+    left: auto;
+    top: auto;
+    bottom: 1dvh;
+    height: 8dvh;
+    width: 100dvw;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2dvh;
+    margin: 0;
+  }
+  .tools img{
+    left: auto;
+    margin: 0;
+    height: 100%;
+    width: auto;
+    filter: drop-shadow(-0.3dvh 0.3dvh 0.3dvh rgba(0, 0, 0, 0.5));
+    transition: opacity 0.5s,  transform 0.15s ;
+  }
+  #devTools{
+    display: none;
+  }
+  .horseShowcase{
+    position: absolute;
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1%;
+  }
+  .horsePortrait{
+    height: auto;
+    width: 90%;
+    margin-top: 13%;
+    margin-bottom: 0%;
+  }
+  .horsePortrait img{
+    width: 100%;
+    box-shadow: 0px 0px 0.5rem rgb(168, 167, 167);
+  }
+  .horseInfo{
+    height: 80%;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .horseterest{
+    width: 97dvw;
+    height: 100dvh;
+    bottom: -2dvh;
+  }
+  .horseInfo h1{
+    font-size: 5dvh;
+    margin: 0;
+    font-weight: lighter;
+  }
+  .horseInfo h3{
+    font-size: 3dvh;
+  }
+  .exitHorseFeature{
+    position: fixed;
+    height: 5dvh;
+    right: 0;
+    top: 0;
+    z-index: 20;
+  }
+  .horseRecs{
+    top: 80%;
+    grid-template-columns: 1fr 1fr;
+  }
+  #horsequery{
+    width: 100dvw;
+    font-size: 13dvh;
+  }
+  #inputhelper{
+    font-size: 8dvh;
+    
+  }
+  #horserName{
+    font-size: 7dvh;
+  }
+
+  #whaaaaaathorseareyoureally{
+    width: 98dvw;
+    height: 100dvh;
+    bottom: -1dvh;
+  }
+  .chaseYourHorse{
+    width: 100%;
+    height: 20dvh;
+  }
+  .chaseYourHorse h1{
+    font-size: 5dvh;
+    font-weight: lighter;
+    margin-top: 2dvh;
+    height: 10dvh;
+  }
+  .line{
+    display: none;
+  }
+  #whatHorseContainer{
+    position: absolute;
+    top: 15dvh;
+    height: 90%;
+    width: 80%;
+    gap: 1dvh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40% 40%;
+  }
+  .thisisahorse{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .thisisahorse img{
+    max-height: 70%;
+    max-width: 100%;  
+    width: auto;
+    height: auto;
+    box-shadow: 0px 0px 1dvh rgba(0, 0, 0, 0.5);
+  }
+  .thisisahorse img:hover{
+    filter: brightness(0.95);
+    transform: scale(1.1);
+    transition: all 0.05s;
+  }
+  .thisisahorse h1{
+    font-size: 2.5dvh;
+    text-align: center;
+  }
+  .thisisahorse h3{
+    text-align: center;
+    font-size: 2dvh;
+  }
+  .thisisahorse h5{
+    text-align: center;
+    font-size: 1.5dvh;
+  }
+
+  .credits{
+    width: 98dvw;
+    height: 96dvh;
+  }
+  .credits h1{
+    text-align: center;
+    text-justify: inter-word;
+    font-weight: lighter;
+    font-size: 6dvh;
+    margin-top: 4dvh;
+  }
+  #firstSub{
+    font-size: 2dvh;
+    margin-bottom: 5dvh;
+  }
+  .credits h3{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 2dvh;
+    margin-top: 0;
+    margin-bottom: 5%;
+    color: rgb(140, 139, 139);
+  }
+  .credits h5{
+    font-size: 4dvh;
+    margin: 0;
+  }
+  #spacer{
+    font-size: 3dvh;
+    margin-top: 6dvh;
+    margin-bottom: 0dvh;
+  }
+  #secondSub{
+    font-size: 2dvh;
+    margin-bottom: 5dvh;
+  }
+  .helpers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .helpers{
+    width: 100%;
+  }
+  #devTools{
+    position: absolute;
+    font-size: 2dvh;
+    color: rgb(29, 41, 109);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #devTools:hover{
+    color: rgb(45, 72, 226);
+    text-decoration: underline;
+  }
 }
