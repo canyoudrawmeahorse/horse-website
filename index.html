@@ -847,12 +847,9 @@
       }
       setTimeout(() => {letThereNOTBeHorses(thenumberofhorses)}, 666/2);
     }
-    howManyHorsesDoesTheUserWant.addEventListener("keypress", function (evt) {
-        if (evt.which < 48 || evt.which > 57)
-        {
-            evt.preventDefault();
-        }
-    }); //ty substack user Glenn Lane for this code ily
+    howManyHorsesDoesTheUserWant.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+    }); //help
     document.getElementById('resetHorses').addEventListener('click', () => {
       endHORSEFINDER();
       if (soWeKillingHorsesOrNahButNowItsABoolean) {endHORSEREBIRTH(); document.getElementById('resetHorses').src = "./assets/resetHorses.png";  return;}
@@ -928,18 +925,11 @@
     const findYourHorse = document.getElementById('whaaaaaathorseareyoureally');
 
     horserIdentityName.addEventListener('keypress', whatWeWriting);
-    function whatWeWriting (evt) {
-      if (soYouWantLettersOrNumbers){
-        if (evt.which < 65 || (90 < evt.which && evt.which < 97) || evt.which > 122)
-        {
-            evt.preventDefault();
-        }
-      }
-      else{
-        if (evt.which < 48 || evt.which > 57)
-        {
-            evt.preventDefault();
-        }
+    function whatWeWriting(evt) {
+      if (soYouWantLettersOrNumbers) {
+          evt.target.value = evt.target.value.replace(/[^a-zA-Z0-9]/g, "");
+      } else {
+          evt.target.value = evt.target.value.replace(/\D/g, "");
       }
     } //ty again Glenn
 
