@@ -149,7 +149,7 @@
         <div class="horseInfo">
         <h1>Name Of Horser</h1>
         <h3>info of Horser</h3>
-        <h5><i>tags of horsie</i></h5>
+        <!-- <h5><i>tags of horsie</i></h5> -->
         </div>
       </div>
       <div class="horseRecs">
@@ -602,7 +602,7 @@
       LocateHorseInfo = horseData.get(goodLookingHorse);
       theHorsieScoop.querySelector("h1").textContent = `${bigData[LocateHorseInfo][3]}, ${bigData[LocateHorseInfo][4]}`;
       theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]} from ${bigData[LocateHorseInfo][6]}, ${bigData[LocateHorseInfo][7]}`;
-      theHorsieScoop.querySelector("h5 i").textContent = `${bigData[LocateHorseInfo][11]}`;
+      //theHorsieScoop.querySelector("h5 i").textContent = `${bigData[LocateHorseInfo][11]}`;
 
       let allThemHorses = "";
       let skippedhorses = 0;
@@ -1116,7 +1116,7 @@
       $.get('./veryimportantdata.csv', function (csvContent) {
 
         bigData = $.csv.toArrays(csvContent);
-        console.log(bigData)
+        //console.log(bigData)
         let selectedHorse = 223;
         let NumberOfTags = 0;
 
@@ -1180,7 +1180,6 @@
           }
           return Math.random() - 0.5;
       });
-      console.log(horseAlike);
     }
 
   </script>
