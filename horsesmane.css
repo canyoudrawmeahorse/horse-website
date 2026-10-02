@@ -1,0 +1,628 @@
+@font-face {
+  font-family: "Lora";
+  src: url("./fonts/Lora/Lora-Italic-VariableFont_wght.ttf") format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+html{
+  filter: invert(0);
+}
+html.night{
+  filter: invert(0.9);
+}
+body{
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+  background-size: 10.7dvh 10.7dvh;
+  background-position-x: 100dvw;
+  background-image:
+    linear-gradient(to right, rgb(236, 236, 236) 0.14rem, transparent 0.14rem),
+    linear-gradient(to bottom, rgb(236, 236, 236) 0.14rem, transparent 0.14rem);
+  user-select: none;
+  margin: 0;
+  z-index: -1;
+  cursor: none;
+}
+h1, h2, h3, p, span, div, input{
+  font-family: "Lora";
+}
+
+
+/* .canyoudrawmeahorse{
+  position: fixed;
+  width: 50dvh;
+  height: auto;
+  top: 23.5dvh;
+  right: 1dvh;
+}
+.canyoudrawmeahorse h1{
+  font-size: 11dvh;
+  font-weight: 100;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  line-height: 11dvh;
+} */
+.canyoudrawmeahorse{
+  position: fixed;
+  width: auto;
+  height: auto;
+  bottom: 0;
+  right: 50%;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(50%, -66.35dvh);
+}
+.canyoudrawmeahorse h1{
+  font-size: 11dvh;
+  font-weight: 100;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  line-height: 11dvh;
+  text-wrap: nowrap;
+}
+.writingguide::after{
+  content: "|";
+}
+.writingguide.blink::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+}
+.blink.hidden::after {
+  visibility: hidden;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.Stable{
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 1;
+}
+.saddle{
+  position: absolute;
+  width: 10dvh;
+  height: 10dvh;
+  transform-origin: center;
+  animation: movingHorse 120s linear infinite, horseDepth var(--duration) linear infinite;
+  will-change: transform;
+  transition: all 0.1s ease-in-out;
+}
+@keyframes horseDepth {
+  0% {z-index: 1;}
+  20% {z-index: 2;}
+  40% {z-index: 3;}
+  60% {z-index: 3;}
+  80% {z-index: 2;}
+  100%{z-index: 1;}
+}
+.horse{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  opacity:0;
+  pointer-events:none;
+}
+@keyframes movingHorse {
+  0% {
+    transform: translate(var(--startX) , var(--startY))
+  }
+  50% {
+    transform: translate(var(--endX) , var(--endY))
+  }
+  100% {
+    transform: translate(var(--startX) , var(--startY))
+  }
+}
+.horse img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  animation: gallop var(--duration) linear infinite;
+  /* filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.294)); */
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.294);
+  transform-origin: center;
+}
+@keyframes gallop {
+  0% {
+    transform:
+      scale(var(--Scale1));
+    z-index: 1;
+  }
+
+  20% {
+    transform:
+      scale(calc(var(--Scale1) + (var(--Scale2) - var(--Scale1)) * 0.3));
+    z-index: 2;
+  }
+
+  40% {
+    transform:
+      scale(calc(var(--Scale1) + (var(--Scale2) - var(--Scale1)) * 0.6));
+    z-index: 3;
+  }
+
+  60% {
+    transform:
+      scale(var(--Scale2));
+    z-index: 4;
+  }
+
+  80% {
+    transform:
+      scale(calc(var(--Scale1) + (var(--Scale2) - var(--Scale1)) * 0.5));
+    z-index: 3;
+  }
+
+  100% {
+    transform:
+      scale(var(--Scale1));
+    z-index: 1;
+  }
+}
+.saddle:hover {
+  animation-play-state: paused;
+  z-index: 10 !important;
+}
+.horse:hover {
+  transform: scale(1.5);
+  transition: transform 0.2s ease;
+}
+.horse img:hover {
+  cursor: none;
+  animation-play-state: paused;
+}
+.horseterest{
+  display: none;
+  opacity: 0;
+  position: fixed;
+  z-index: 3;
+  width: 96dvw;
+  height: 100dvh;
+  bottom: -3dvh;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+
+  border: solid;
+  border-width: 0.3dvh;
+  border-radius: 1dvh;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 0;
+  box-shadow: 0px 0px 2dvh rgba(0, 0, 0, 0.2);
+}
+.exitHorseFeature{
+  position: fixed;
+  height: 10dvh;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+.exitHorseFeature:hover{
+  transform: translateY(-3%);
+  filter: drop-shadow(0px 0.5dvh 0.2dvh rgba(0, 0, 0, 0.5));
+}
+.horseShowcase{
+  position: absolute;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10%;
+}
+.horsePortrait{
+  height: 80%;
+  width: 10%;
+  margin: 10%;
+}
+.horsePortrait img{
+  max-height: 100%;
+  max-width: 280%;
+  box-shadow: 0px 0px 0.5rem rgb(168, 167, 167);
+}
+.horseInfo{
+  height: 80%;
+  width: auto;
+}
+.horseInfo h1{
+  color: rgb(10, 10, 10);
+  font-size: 4rem;
+  margin: 0;
+  font-weight: lighter;
+}
+.horseInfo h3{
+  color: rgb(82, 82, 82);
+  font-size: 2rem;
+  margin: 0;
+  padding-bottom: 5%;
+  font-weight: lighter;
+}
+.horseInfo h5{
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin: 0;
+  text-decoration: dotted;
+}
+.horseRecs{
+  position: absolute;
+  top: 85%;
+  margin: 3%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2%;
+  align-items: center;
+}
+.checkOutThisHorse img{
+  background-color: antiquewhite;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0px 0px 0.5rem rgb(168, 167, 167);
+  transition: transform 0.2s;
+}
+.checkOutThisHorse img:hover{
+  transform: scale(1.2);
+}
+
+#noHorsesForYou{
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 2;
+  display: none;
+}
+
+.tools{
+  position: fixed;
+  left: 2dvh;
+  top: 2dvh;
+  height: 40dvh;
+  width: 6.5dvh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 2.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  gap: 1dvh;
+  background-color: rgba(255, 255, 255, 0);
+  margin: 0;
+}
+.tools img{
+  left: 0;
+  margin: 0;
+  height: auto;
+  width: 100%;
+  filter: drop-shadow(-0.3dvh 0.3dvh 0.3dvh rgba(0, 0, 0, 0.5));
+  transition: opacity 0.5s,  transform 0.15s ;
+}
+.tools img:hover{
+  transform: scale(1.2);
+}
+#horseKillingTime{
+  transition: opacity 0.5s,  transform 0.12s ;
+  display: none;
+}
+#nightHorse{
+  transition: opacity 0.5s,  transform 0.12s ;
+}
+#resetHorses{
+  transition: opacity 0.5s,  transform 0.12s ;
+}
+#horseLookUp{
+  transition: opacity 0.5s,  transform 0.12s ;
+} 
+#horsequery{
+  position: fixed;
+  width: 30dvw;
+  height: 20dvh;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  margin: 0;  
+  opacity: 0;
+  font-size: 16dvh;
+  z-index: 90;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  background: none;
+  cursor: none;
+  border: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 0.8rem 0.8rem 0.5rem rgba(0, 0, 0, 0.3);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+#Announcer{
+  position: fixed;
+  text-align: center;
+  align-items: center;
+  width: 100dvw;
+  bottom: 60%;
+  font-size: 6rem;
+  text-shadow: 0px 0px 1rem rgb(123, 0, 0);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#inputhelper{
+  position: fixed;
+  width: 100dvw;
+  height: auto;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  font-size: 15dvh;
+  z-index: 90;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  cursor: none;
+  border: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 0.8rem 0.8rem 0.5rem rgba(0, 0, 0, 0.3);
+  transition: opacity 1s linear;
+}
+#horserName{
+  position: fixed;
+  width: 100dvw;
+  height: 40dvh;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  margin: 0;  
+  opacity: 0;
+  font-size: 10dvh;
+  z-index: 90;
+  pointer-events: none;
+  cursor: none;
+  border: none;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+  background: none; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  transition: opacity 1s linear;
+}
+
+
+#whaaaaaathorseareyoureally{
+  position: fixed;
+  display: none;
+  opacity: 0;
+  z-index: 12;
+  width: 96dvw;
+  height: 100dvh;
+  bottom: -3dvh;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  transition: opacity 0.5s linear;
+
+  border: solid;
+  border-width: 0.3dvh;
+  border-radius: 1dvh;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 0;
+  box-shadow: 0px 0px 2dvh rgba(0, 0, 0, 0.2);
+}
+.chaseYourHorse{
+  position: absolute;
+  width: 100%;
+  height: 20dvh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.chaseYourHorse h1{
+  font-size: 8dvh;
+  font-weight: lighter;
+  margin-top: 3dvh;
+  height: 10dvh;
+}
+.line{
+  width: 25%;
+  height: 0.3dvh;
+  background-color: black;
+  top: 50%;
+}
+#whatHorseContainer{
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 1dvh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60% 60% 60% 60%;
+}
+.thisisahorse{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.thisisahorse img{
+  max-height: 70%;
+  max-width: 100%;  
+  width: auto;
+  height: auto;
+  box-shadow: 0px 0px 1dvh rgba(0, 0, 0, 0.5);
+}
+.thisisahorse img:hover{
+  filter: brightness(0.95);
+  transform: scale(1.1);
+  transition: all 0.05s;
+}
+.thisisahorse h1{
+  margin: 0;
+  font-size: 3dvh;
+  font-weight: bold;
+}
+.thisisahorse h3{
+  margin: 0;
+  font-weight: lighter;
+  font-size: 2dvh;
+}
+.thisisahorse h5{
+  margin: 0;
+  font-weight: lighter;
+  font-size: 1.5dvh;
+}
+
+.credits{
+  position: fixed;
+  display: none;
+  opacity: 0;
+  z-index: 15;
+  width: 96dvw;
+  height: 96dvh;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  transition: opacity 0.5s linear;
+
+  border: solid;
+  border-width: 0.3dvh;
+  border-radius: 1dvh;
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 2dvh rgba(0, 0, 0, 0.2);
+}
+.credits h1{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 10dvh;
+  margin-bottom: 0;
+  margin-top: 6dvh;
+}
+#firstSub{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2dvh;
+  margin-top: 0;
+  margin-bottom: 7dvh;
+  color: rgb(140, 139, 139);
+}
+.credits h3{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2dvh;
+  margin-top: 0;
+  color: rgb(140, 139, 139);
+}
+.credits h5{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 4dvh;
+  margin: 0;
+  color: rgb(81, 81, 81);
+}
+#spacer{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 3dvh;
+  margin-top: 8dvh;
+  margin-bottom: 0dvh;
+  color: rgb(140, 139, 139);
+}
+#secondSub{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2dvh;
+  margin-top: -0.5dvh;
+  margin-bottom: 10dvh;
+  color: rgb(140, 139, 139);
+}
+.helpers{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.helpers{
+  width: 100%;
+}
+#devTools{
+  position: absolute;
+  font-size: 2dvh;
+  color: rgb(29, 41, 109);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#devTools:hover{
+  color: rgb(45, 72, 226);
+  text-decoration: underline;
+}
+
+
+#CursorIsMe{
+  position: relative;
+  width: 64px;
+  height: 64px;
+  z-index: 99;
+  transition: all 0.025s;
+  pointer-events: none;
+  display: none;
+}
+.horseCursor{
+  background-image: url(./assets/cursorDefault.png);
+}
+.horsePointer{
+  background-image: url(./assets/cursorPointer.png);
+}
+.sniperHorse{
+  background-image: url(./assets/SniperAIMcursor.png);
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+::selection {
+  background: rgba(204, 204, 204, 0.6);
+}
+::-moz-selection {
+  background: rgba(204, 204, 204, 0.6);
+}
+
+/* Tablet Mode */
+@media (max-aspect-ratio: 1) {
+  .canyoudrawmeahorse{
+    width: 90dvw;
+    transform: translate(52%, -55.4dvh);
+  }
+  .canyoudrawmeahorse h1{
+    font-size: 10dvh;
+    line-height: 10.8dvh;
+    text-wrap: auto;
+  }
+}
