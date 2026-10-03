@@ -931,10 +931,10 @@
     let soYouWantLettersOrNumbers = true;
     const findYourHorse = document.getElementById('whaaaaaathorseareyoureally');
 
-    horserIdentityName.addEventListener('keypress', whatWeWriting);
+    horserIdentityName.addEventListener('input', whatWeWriting);
     function whatWeWriting(evt) {
       if (soYouWantLettersOrNumbers) {
-          evt.target.value = evt.target.value.replace(/[^a-zA-Z0-9]/g, "");
+          evt.target.value = evt.target.value.replace(/[^\p{L}]/gu, "");
       } else {
           evt.target.value = evt.target.value.replace(/\D/g, "");
       }
