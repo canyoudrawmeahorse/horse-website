@@ -608,7 +608,31 @@
       // } Optimizing arghhhh
       LocateHorseInfo = horseData.get(goodLookingHorse);
       theHorsieScoop.querySelector("h1").textContent = `${bigData[LocateHorseInfo][3]}, ${bigData[LocateHorseInfo][4]}`;
-      theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]} from ${bigData[LocateHorseInfo][6]}, ${bigData[LocateHorseInfo][8]}`;
+      if(bigData[LocateHorseInfo][5] === ""){
+        if (bigData[LocateHorseInfo][6] === ""){
+          if(bigData[LocateHorseInfo][8] === ""){}
+          else{
+            theHorsieScoop.querySelector("h3").textContent = `From ${bigData[LocateHorseInfo][8]}`;
+          }        
+        }
+        else{
+          theHorsieScoop.querySelector("h3").textContent = `From ${bigData[LocateHorseInfo][6]}, ${bigData[LocateHorseInfo][8]}`;
+        }
+      }
+      else{
+        if (bigData[LocateHorseInfo][6] === ""){
+          if(bigData[LocateHorseInfo][8] === ""){
+            theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]}}`;
+          }
+          else{
+            theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]} from ${bigData[LocateHorseInfo][8]}`;
+          }        
+        }
+        else{
+          theHorsieScoop.querySelector("h3").textContent = `${bigData[LocateHorseInfo][5]} from ${bigData[LocateHorseInfo][6]}, ${bigData[LocateHorseInfo][8]}`;
+        }
+      }
+      
       //theHorsieScoop.querySelector("h5 i").textContent = `${bigData[LocateHorseInfo][11]}`;
 
       let allThemHorses = "";
