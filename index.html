@@ -1037,7 +1037,7 @@
     let soWhatNamesYouGot;
     let matchesFound;
     const maybeHorses = document.querySelectorAll('.thisisahorse');
-    console.log(maybeHorses)
+    //console.log(maybeHorses)
     function horseSearch(givenName, givenAge) {
       findYourHorse.style.display = "block";
       setTimeout(() => {findYourHorse.style.opacity = 1;}, 100);
@@ -1049,7 +1049,7 @@
           if (givenName.toLowerCase() === soWhatNamesYouGot[parsingHorserNamez].toLowerCase()){
             if (givenAge >= bigData[bigData.length - findingYourMatch][4] && givenAge-4 <= (bigData[bigData.length - findingYourMatch][4]) || bigData[bigData.length - findingYourMatch][4] === ""){
               if (whatHorsesWeGot.includes(Number(bigData[bigData.length - findingYourMatch][2]))) {
-                console.log("I got one with " + givenName + " image number " + bigData[bigData.length - findingYourMatch][2])
+                //console.log("I got one with " + givenName + " image number " + bigData[bigData.length - findingYourMatch][2])
                 maybeHorses[matchesFound].querySelector("img").src = `./horses/${bigData[bigData.length - findingYourMatch][2]}.png`;
                 maybeHorses[matchesFound].querySelector("h1").textContent = `${bigData[bigData.length - findingYourMatch][3]}`;
                 maybeHorses[matchesFound].querySelector("h3").textContent = `${bigData[bigData.length - findingYourMatch][5]}`;
@@ -1172,7 +1172,9 @@
           const thisTag = howSimilarAreTheseTwoHorsesTags[soYourTagsAre]
           const tagInfo = horseUniquenessLookup.get(thisTag);
           if (tagInfo != null){horseAlikeIndex = horseAlikeIndex + (10*(1-((tagInfo.weight-1)/500))**20);}
-          else{console.log("got no tags for" + thisTag)};
+          else{
+            //console.log("got no tags for" + thisTag)
+          };
         }
 
         horseAlike[parsing] = {
@@ -1233,5 +1235,15 @@
     };
     window.addEventListener('mouseover', horsinghere), {once: true};
     window.addEventListener('mousemove', moveCursor)
+
+
+
+    //Instagram link!!
+
+    const instaLink = document.getElementById('instagramHorse')
+
+    instaLink.addEventListener('click', () => {
+      window.open('https://www.instagram.com/canyoudrawmeahorse/', '_blank');
+    });
   </script>
 </html>
