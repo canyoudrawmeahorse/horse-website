@@ -116,35 +116,17 @@
       <img class="exitHorseFeature pointer" id="exitCredits" src="./assets/ex.png" alt="leave credits">
       <h1>can you draw me a horse?</h1>
       <h3 id="firstSub">is a project made by</h3>
-      <h5>Teresa Carreira</h5>
-      <h3>idea</h3>
-      <h5>&</h5>
-      <h5>Matilde Rodrigues</h5>
-      <h3>gestora de projeto & designer</h3>
-      <h3 id="spacer">- - - - - - - - - - - - -</h3>
-      <h3 id="secondSub">with the help of</h3>
-      <div class="helpers">
-        <div class="helper">
-          <h5>João Pita</h5>
-          <h3>embaixador sénior</h3>
-        </div>
-        <div class="helper">
-          <h5>Certã</h5>
-          <h3>relações públicas</h3>
-        </div>
-        <div class="helper">
-          <h5>Isabella Costa</h5>
-          <h3>web designer</h3>
-        </div>
-        <div class="helper">
-          <h5>Catarina Soares</h5>
-          <h3>consultora de eventos</h3>
-        </div>
-        <div class="helper">
-          <h5>Margarida Pereira</h5>
-          <h3>embaixadora júnior</h3>
-        </div>
+      <div class="namesOfChiefs">
+        <div class="Chief"><h5>Matilde Rodrigues</h5><h3>, gestora de projeto & designer</h3></div>
+        <div class="Chief"><h5>Teresa Carreira</h5><h3>, idea</h3></div>
+        <div class="Chief"><h5>João Pita</h5><h3>, embaixador sénior</h3></div>
+        <div class="Chief"><h5>Certã</h5><h3>, relações públicas</h3></div>
+        <div class="Chief"><h5>Isabella Costa</h5><h3>, web designer</h3></div>
+        <div class="Chief"><h5>Catarina Soares</h5><h3>, consultora de eventos</h3></div>
+        <div class="Chief"><h5>Margarida Pereira</h5><h3>, embaixadora júnior</h3></div>
       </div>
+      <h2 id="instagramHorse" class="pointer">@canyoudrawmeahorse</h2>
+      <h3 id="spacer">- - - - - - - - - - - - -</h3>
       <h3 class="pointer" id="devTools">activate dev tools</h3>
 
     </div>
@@ -246,13 +228,16 @@
       else{
         TheHorseIsTyping.classList.add("blink");
         setTimeout(() => {document.querySelector(".blink").classList.add("hidden");}, 1500);
-        setTimeout(() => {document.addEventListener("click", startHorsing);}, 1300);
+        setTimeout(() => {cursor.classList.add("horsePointer"); Stable.classList.add("pointer"); document.addEventListener("click", startHorsing);}, 1300);
       }
     }
     typeTitle();
 
     function startHorsing() {
-      document.removeEventListener("click", startHorsing)
+      document.removeEventListener("click", startHorsing);
+      cursor.classList.remove("horsePointer");
+      cursor.classList.add("horseCursor");
+      Stable.classList.remove("pointer");
       horseTitleDiv.style.transition = "all 2s ease-in-out";
       if (isPhone()) {horseTitleDiv.style.opacity = "0"; setTimeout(() => {horseTitleDiv.style.display = "none";}, 10000);}
       else{
@@ -956,12 +941,15 @@
     const findYourHorse = document.getElementById('whaaaaaathorseareyoureally');
 
     horserIdentityName.addEventListener('input', whatWeWriting);
+    horserIdentityName.addEventListener('compositionend', whatWeWriting);
     function whatWeWriting(evt) {
+     if (!evt.isComposing) {
       if (soYouWantLettersOrNumbers) {
           evt.target.value = evt.target.value.replace(/[^\p{L}]/gu, "");
       } else {
           evt.target.value = evt.target.value.replace(/\D/g, "");
       }
+     }
     } //ty again Glenn
 
     let sowhathorserareyou;
@@ -1203,10 +1191,10 @@
       });
     }
 
-  </script>
+
 
   <!-- custom cursor -->
-  <script>
+
     const cursor = document.getElementById('CursorIsMe');
     cursor.classList.add("horseCursor");
 

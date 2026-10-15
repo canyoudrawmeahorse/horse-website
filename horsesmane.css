@@ -26,7 +26,7 @@ body{
   z-index: -1;
   cursor: none;
 }
-h1, h2, h3, p, span, div, input{
+h1, h2, h3, p, span, div, input, a{
   font-family: "Lora";
 }
 
@@ -517,6 +517,7 @@ h1, h2, h3, p, span, div, input{
   overflow-y: scroll;
   scrollbar-width: none;
   transition: opacity 0.5s linear;
+  text-align: center;
 
   border: solid;
   border-width: 0.3dvh;
@@ -528,6 +529,7 @@ h1, h2, h3, p, span, div, input{
   text-align: center;
   font-weight: lighter;
   font-size: 10dvh;
+  line-height: 9dvh;
   margin-bottom: 0;
   margin-top: 6dvh;
 }
@@ -535,54 +537,72 @@ h1, h2, h3, p, span, div, input{
   text-align: center;
   font-weight: lighter;
   font-size: 2dvh;
-  margin-top: 0;
-  margin-bottom: 7dvh;
+  margin-top: 2dvh;
+  margin-bottom: 5dvh;
   color: rgb(140, 139, 139);
 }
-.credits h3{
-  text-align: center;
-  font-weight: lighter;
-  font-size: 2dvh;
-  margin-top: 0;
-  color: rgb(140, 139, 139);
+.namesOfChiefs{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  height: fit-content;
+  margin-top: 21dvh;
 }
-.credits h5{
-  text-align: center;
+.Chief{  
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: fit-content;
+  width: 100%;
+}
+.Chief h5{
+  text-align: right;
   font-weight: lighter;
-  font-size: 4dvh;
+  font-size: 3dvh;
   margin: 0;
   color: rgb(81, 81, 81);
 }
-#spacer{
-  text-align: center;
+.Chief h3{
+  text-align: left;
   font-weight: lighter;
   font-size: 3dvh;
-  margin-top: 8dvh;
-  margin-bottom: 0dvh;
+  margin: 0;
   color: rgb(140, 139, 139);
 }
-#secondSub{
-  text-align: center;
+#instagramHorse{
+  position: absolute;
+  font-size: 1.8dvh;
   font-weight: lighter;
-  font-size: 2dvh;
-  margin-top: -0.5dvh;
-  margin-bottom: 10dvh;
+  text-decoration: underline;
+  color: rgb(85, 85, 85);
+  width: fit-content;
+  bottom: 0;
+  margin-bottom: 5dvh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#instagramHorse:hover{
   color: rgb(140, 139, 139);
 }
-.helpers{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-.helpers{
-  width: 100%;
+#spacer{
+  position: absolute;
+  font-weight: lighter;
+  font-size: 3dvh;
+  bottom: 0;
+  margin-bottom: 2dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(140, 139, 139);
 }
 #devTools{
   position: absolute;
   font-size: 2dvh;
   color: rgb(29, 41, 109);
   bottom: 0;
+  margin: 0;
+  margin-bottom: 1dvh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -794,45 +814,37 @@ textarea:focus, input:focus{
     height: 96dvh;
   }
   .credits h1{
-    text-align: center;
-    text-justify: inter-word;
-    font-weight: lighter;
     font-size: 6dvh;
     margin-top: 4dvh;
   }
   #firstSub{
+    margin-top: 0dvh;
     font-size: 2dvh;
-    margin-bottom: 5dvh;
-  }
-  .credits h3{
-    text-align: center;
-    font-weight: lighter;
-    font-size: 2dvh;
-    margin-top: 0;
-    margin-bottom: 5%;
-    color: rgb(140, 139, 139);
-  }
-  .credits h5{
-    font-size: 4dvh;
-    margin: 0;
   }
   #spacer{
-    font-size: 3dvh;
-    margin-top: 6dvh;
-    margin-bottom: 0dvh;
+    display: none;
   }
-  #secondSub{
-    font-size: 2dvh;
-    margin-bottom: 5dvh;
-  }
-  .helpers{
+  .namesOfChiefs{
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-  }
-  .helpers{
+    justify-content: start;
     width: 100%;
+    height: fit-content;
+    margin-top: 21dvh;
+  }
+  .Chief{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: fit-content;
+    width: 100%;
+  }
+  .Chief h5{
+    font-size: 3.5dvw;
+  }
+  .Chief h3{
+    font-size: 3.5dvw;
   }
   #devTools{
     position: absolute;
@@ -846,6 +858,9 @@ textarea:focus, input:focus{
     color: rgb(45, 72, 226);
     text-decoration: underline;
   }
+  #instagramHorse{
+    margin-bottom: 1dvh;
+  }
 
 
 
@@ -854,5 +869,20 @@ textarea:focus, input:focus{
   }
   #resetHorses{
     display: none;
+  }
+}
+@media (max-aspect-ratio: 0.72) {
+  #firstSub{
+    font-size: 1.6dvh;
+  }
+  .credits h1{
+    font-size: 13dvw;
+    line-height: 12dvw;
+  }
+  .Chief h5{
+    font-size: 4dvw;
+  }
+  .Chief h3{
+    font-size: 4dvw;
   }
 }
